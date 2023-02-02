@@ -326,6 +326,7 @@ function cleanupPostDrop() {
 
 export function dndzone(node, options) {
     let initialized = false;
+    let timeoutCursor;
     const config = {
         items: undefined,
         type: undefined,
@@ -399,10 +400,15 @@ export function dndzone(node, options) {
         currentMousePosition = {...dragStartMousePosition};
         originalDragTarget = e.currentTarget;
         const {cursorStartDrag} = dzToConfig.get(originalDragTarget) || dzToConfig.get(node);
-        moveDraggedElementToWasDroppedState(originalDragTarget, cursorStartDrag);
+        timeoutCursor = setTimeout(() => {
+            moveDraggedElementToWasDroppedState(originalDragTarget, cursorStartDrag);
+        }, 100);
         addMaybeListeners();
     }
     function handleMouseUp(e) {
+        if (timeoutCursor) {
+            clearTimeout(timeoutCursor);
+        }
         originalDragTarget = e.currentTarget;
         const {cursorHover} = dzToConfig.get(originalDragTarget) || dzToConfig.get(node);
         moveDraggedElementToWasDroppedState(originalDragTarget, cursorHover);
