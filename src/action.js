@@ -12,6 +12,10 @@ import {toString} from "./helpers/util";
  * @typedef {object} Options
  * @property {array} items - the list of items that was used to generate the children of the given node (the list used in the #each block
  * @property {string} [type] - the type of the dnd zone. children dragged from here can only be dropped in other zones of the same type, default to a base type
+ * @property {string} [cursorStartDrag]
+ * @property {string} [cursorDragging]
+ * @property {string} [cursorDrop]
+ * @property {string} [cursorHover]
  * @property {number} [flipDurationMs] - if the list animated using flip (recommended), specifies the flip duration such that everything syncs with it without conflict, defaults to zero
  * @property {boolean} [constrainAxisX] - Constrain dragging by X axis. Drag will be allowed only by Y axis.
  * @property {boolean} [constrainAxisY] - Constrain dragging by Y axis. Drag will be allowed only by X axis.
@@ -49,6 +53,10 @@ function validateOptions(options) {
         items,
         flipDurationMs,
         type,
+        cursorStartDrag,
+        cursorDragging,
+        cursorDrop,
+        cursorHover,
         constrainAxisX,
         constrainAxisY,
         dragDisabled,

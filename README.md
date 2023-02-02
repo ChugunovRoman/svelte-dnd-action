@@ -108,6 +108,10 @@ An options-object with the following attributes:
 | `items` | Array&lt;Object&gt; | Yes. Each object in the array **has to have** an `id` property (key name can be overridden globally) with a unique value (within all dnd-zones of the same type) | N/A | The data array that is used to produce the list with the draggable items (the same thing you run your #each block on). The dndzone should not have children that don't originate in `items` |
 | `flipDurationMs` | Number | No | `0` | The same value you give the flip animation on the items (to make them animated as they "make space" for the dragged item). Set to zero or leave out if you don't want animations |
 | `type` | String | No | Internal | dnd-zones that share the same type can have elements from one dragged into another. By default, all dnd-zones have the same type |
+| `cursorStartDrag` | String | No | `grab` | cursor style when click on drag item occur |
+| `cursorDragging` | String | No | `grabbing` | cursor style when the drag occurs |
+| `cursorDrop` | String | No | `grab` | cursor style when the drag ends |
+| `cursorHover` | String | No | `grab` | cursor style when mouse hover over draggable element |
 | `constrainAxisX` | Boolean | No | `false` | Constrain dragging by X axis. Drag will be allowed only by Y axis. |
 | `constrainAxisY` | Boolean | No | `false` | Constrain dragging by Y axis. Drag will be allowed only by X axis. |
 | `dragDisabled` | Boolean | No | `false` | Setting it to true will make it impossible to drag elements out of the dnd-zone. You can change it at any time, and the zone will adjust on the fly |
